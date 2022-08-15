@@ -1,0 +1,61 @@
+<%= form_with(model: kpt, local: true) do |form| %>
+  <% if kpt.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(kpt.errors.count, "error") %> prohibited this kpt from being saved:</h2>
+
+      <ul>
+        <% kpt.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :"keep(最大130字)"%>
+    <%= form.text_area :keep_content,size: "40x8",class: 'form-control  js-text', rows: 6, placeholder: '改行は文字数に反映されません'%>
+
+    <P class="js-text-count pull-right"></P>
+    <button class="clipboard-btn" data-clipboard-action="copy" data-clipboard-target="#bar">
+      Copy to clipboard
+    </button>
+  </div>
+
+  <div class="field">
+    <%= form.label :達成度 %>
+    <%= form.select :keep_status, Kpt.keep_statuses.keys , class: "keep_status-select"%>
+  </div>
+
+  <div class="field">
+    <%= form.label :"problem(最大130字)" %>
+    <%= form.text_area :problem_content , size: "40x8",class: 'form-control  js-text', rows: 6, placeholder: '改行は文字数に反映されません'%>
+
+    <P class="js-text-count pull-right"></P>
+  </div>
+
+  <div class="field">
+    <%= form.label :達成度 %>
+    <%= form.select :problem_status, Kpt.problem_statuses.keys,class: "problem_status-select"%>
+  </div>
+  
+  <div class="field">
+    <%= form.label :"try(最大130字)" %>
+    <%= form.text_area :try_content , size: "40x8",class: 'form-control  js-text', rows: 6, placeholder: '改行は文字数に反映されません' %>
+
+    <P class="js-text-count pull-right"></P>
+  </div>
+
+  <div class="field">
+    <%= form.label :達成度 %>
+    <%= form.select :try_status, Kpt.try_statuses.keys,  class: "try_status-select"%>
+  </div>
+
+  <div class="field">
+    <%= form.label :お気に入り %>
+    <%= form.check_box :favorite %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,9 @@
+<%= link_to new_user_registration_path do%>
+  <button class="btn btn-secondary btn-lg" >ユーザー登録</button>
+<%end%>
+<%= link_to new_user_session_path do %>
+  <button class="btn btn-secondary btn-lg" >ログイン</button>
+<%end%>
+<%= link_to "ログアウト", destroy_user_session_path , method: :delete%>
+
+<div>あなたの名前:<%= current_user.name %></div>

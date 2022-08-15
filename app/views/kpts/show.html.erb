@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Keep :</strong>
+</p>
+<p>  
+  <%=safe_join(@kpt.keep_content.split("\n"),tag(:br))%>
+</p>
+
+<p>
+  <strong>達成度:</strong>
+  <%= @kpt.keep_status %>
+</p>
+
+<p>
+  <strong>Problem :</strong>
+</p>
+<p>
+  <%=safe_join(@kpt.problem_content.split("\n"),tag(:br))%>
+</p>
+
+<p>
+  <strong>達成度:</strong>
+  <%= @kpt.problem_status %>
+</p>
+
+<p>
+  <strong>Try :</strong>
+</p>
+<p>
+  <%=safe_join(@kpt.try_content.split("\n"),tag(:br))%>
+</p>
+
+<p>
+  <strong>達成度:</strong>
+  <%= @kpt.try_status %>
+</p>
+
+<p>
+  <strong>Favorite:</strong>
+  <%= @kpt.favorite %>
+</p>
+
+<%= link_to '編集', edit_kpt_path(@kpt) %> |
+<%= link_to '戻る', kpts_path %>
