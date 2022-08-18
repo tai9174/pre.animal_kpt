@@ -13,12 +13,18 @@
 
   <div class="field">
     <%= form.label :"keep(最大130字)"%>
-    <%= form.text_area :keep_content,size: "40x8",class: 'form-control  js-text', rows: 6, placeholder: '改行は文字数に反映されません'%>
+    <%= form.text_area :keep_content,size: "40x8",class: 'form-control', id: "input-text",rows: 4 , placeholder: '改行は文字数に反映されません'%>
+    <p id="counter">0文字</p>
 
     <P class="js-text-count pull-right"></P>
-    <button class="clipboard-btn" data-clipboard-action="copy" data-clipboard-target="#bar">
+    <%
+=begin%>
+<button class="clipboard-btn" data-clipboard-action="copy" data-clipboard-target="#bar">
       Copy to clipboard
-    </button>
+    </button> 
+<%
+=end%> 
+
   </div>
 
   <div class="field">

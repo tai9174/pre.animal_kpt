@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Kpts</h1>
+<h1><%= current_user.name %>のKpts</h1>
 
 <table>
   <thead>
@@ -17,14 +17,21 @@
     <% @kpts.each do |kpt| %>
       <tr>
         <td><%= kpt.created_at.strftime('%m/%d') %></td>
-        <td style="padding: 10px; margin-bottom: 10px; border: 1px solid #333333;">
+        <td style="height: 150px; width: 250px; padding: 10px; margin-bottom: 10px; border: 1px solid #333333;">
           <%=safe_join(kpt.keep_content.split("\n"),tag(:br))%>
+          <%
+=begin%>
+ <div id="square-button"></div>
+          <div id="square-button"></div>
+          <div id="square-button"></div> 
+<%
+=end%>
         </td>
-        <td style="padding: 10px; margin-bottom: 10px; border: 1px solid #333333;">
+        <td style="height: 150px; width: 250px; padding: 10px; margin-bottom: 10px; border: 1px solid #333333;">
           <%=safe_join(kpt.problem_content.split("\n"),tag(:br))%>
-        </td>
-        <td style="padding: 10px; margin-bottom: 10px; border: 1px solid #333333;">
+        <td style="height: 150px; width: 250px; padding: 10px; margin-bottom: 10px; border: 1px solid #333333;">
           <%=safe_join(kpt.try_content.split("\n"),tag(:br))%>
+        
         </td>
         <td><%= link_to '詳細', kpt %></td>
         <td><%= link_to '編集', edit_kpt_path(kpt) %></td>
@@ -34,6 +41,7 @@
   </tbody>
 </table>
 
-<br>
+
 
 <%= link_to "New Kpt", new_kpt_path, data: {"turbolinks" => false} %>
+<%= link_to 'アプリの使い方', tops_help_path%>

@@ -1,9 +1,10 @@
 class KptsController < ApplicationController
   before_action :set_kpt, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!, only: [:new, :create,:index]
 
   # GET /kpts or /kpts.json
   def index
-    @kpts = Kpt.all
+    @kpts = current_user.kpts 
   end
 
   # GET /kpts/1 or /kpts/1.json
@@ -21,6 +22,7 @@ class KptsController < ApplicationController
 
   # POST /kpts or /kpts.json
   def create
+    
     @kpt = current_user.kpts.build(kpt_params)
 
     respond_to do |format|

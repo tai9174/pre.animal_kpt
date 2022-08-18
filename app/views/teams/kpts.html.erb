@@ -1,0 +1,30 @@
+<h1><%=@team.team_name %>のKPT</h1>
+<div>
+<h3><%=Date.today.strftime('%m/%d') %></h3>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>ニックネーム </th>
+      <th>Keep </th>
+      <th>Problem </th>
+      <th>Try </th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%@today_kpts.each do |kpt| %>
+      <tr>
+        <td><%=kpt.user.name %></td>
+        <td style="height: 150px; width: 250px; padding: 10px; margin-bottom: 10px; border: 1px solid #333333;"><%= kpt.keep_content %></td> 
+        <td style="height: 150px; width: 250px; padding: 10px; margin-bottom: 10px; border: 1px solid #333333;"><%= kpt.problem_content %></td>
+        <td style="height: 150px; width: 250px; padding: 10px; margin-bottom: 10px; border: 1px solid #333333;"><%= kpt.try_content %></td>
+      </tr>
+    <% end %>
+  </tbody> 
+</table>
+
+<br>
+<%= link_to '戻る', teams_path %>
