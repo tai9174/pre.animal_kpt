@@ -3,36 +3,54 @@
 <p>
   <strong>Keep :</strong>
 </p>
-<p style="height: 150px; width: 450px; padding: 10px; margin-bottom: 10px; border: 1px solid #333333;">  
+  <% if @kpt.keep_status == "●少し達成●" %>
+    <p style="height: 150px; width: 350px; padding: 10px; margin-bottom: 10px; border: 1px solid #333333;background-color: #FFFFCC;">
+  <% elsif @kpt.keep_status == "●達成●"%>
+    <p style="height: 150px; width: 350px; padding: 10px; margin-bottom: 10px; border: 1px solid #333333;background-color: #CCFFFF;">
+  <%else %>
+    <p style="height: 150px; width: 350px; padding: 10px; margin-bottom: 10px; border: 1px solid #333333;background-color: #FFCCCC;">
+  <%end %>
   <%=safe_join(@kpt.keep_content.split("\n"),tag(:br))%>
 </p>
 
 <p>
-  <strong>達成度:</strong>
+  <strong>Keepの達成度:</strong>
   <%= @kpt.keep_status %>
 </p>
 
 <p>
   <strong>Problem :</strong>
 </p>
-<p style="height: 150px; width: 450px; padding: 10px; margin-bottom: 10px; border: 1px solid #333333;">
+  <% if @kpt.problem_status == "○少し達成○" %>
+    <p style="height: 150px; width: 350px; padding: 10px; margin-bottom: 10px; border: 1px solid #333333;background-color: #FFFFCC;">
+  <% elsif @kpt.problem_status == "○達成○"%>
+    <p style="height: 150px; width: 350px; padding: 10px; margin-bottom: 10px; border: 1px solid #333333;background-color: #CCFFFF;">
+  <%else %>
+    <p style="height: 150px; width: 350px; padding: 10px; margin-bottom: 10px; border: 1px solid #333333;background-color: #FFCCCC;">
+  <%end %>
   <%=safe_join(@kpt.problem_content.split("\n"),tag(:br))%>
 </p>
 
 <p>
-  <strong>達成度:</strong>
+  <strong>Problemの達成度:</strong>
   <%= @kpt.problem_status %>
 </p>
 
 <p>
   <strong>Try :</strong>
 </p>
-<p style="height: 150px; width: 450px; padding: 10px; margin-bottom: 10px; border: 1px solid #333333;">
+  <% if @kpt.try_status == "◎少し達成◎" %>
+    <p style="height: 150px; width: 350px; padding: 10px; margin-bottom: 10px; border: 1px solid #333333;background-color: #FFFFCC;">
+  <% elsif @kpt.try_status == "◎達成◎"%>
+    <p style="height: 150px; width: 350px; padding: 10px; margin-bottom: 10px; border: 1px solid #333333;background-color: #CCFFFF;">
+  <%else %>
+    <p style="height: 150px; width: 350px; padding: 10px; margin-bottom: 10px; border: 1px solid #333333;background-color: #FFCCCC;">
+  <%end %>
   <%=safe_join(@kpt.try_content.split("\n"),tag(:br))%>
 </p>
 
 <p>
-  <strong>達成度:</strong>
+  <strong>Tryの達成度:</strong>
   <%= @kpt.try_status %>
 </p>
 

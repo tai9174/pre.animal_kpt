@@ -4,7 +4,7 @@ class KptsController < ApplicationController
 
   # GET /kpts or /kpts.json
   def index
-    @kpts = current_user.kpts 
+    @kpts = current_user.kpts.order(created_at: :desc)
   end
 
   # GET /kpts/1 or /kpts/1.json

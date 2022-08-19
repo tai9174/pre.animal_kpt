@@ -25,7 +25,7 @@
   <div class="field">
     <%= form.label :"keep(最大130字)"%>
     <%= form.text_area :keep_content,size: "40x8",class: 'form-control  js-text', 
-        rows: 6 , placeholder: '改行は文字数(2文字)'%>
+        rows: 6 , placeholder: '改行の文字数(2文字)'%>
     
     <P class="js-text-count pull-right"></P> 
     <button class='my_clip_button' data-clipboard-target='fe_text' data-clipboard-text='Default clipboard text from attribute' id='d_clip_button'>
@@ -37,31 +37,31 @@
   
 
   <div class="field">
-    <%= form.label :達成度 %>
+    <%= form.label :Keepの達成度 %>
     <%= form.select :keep_status, Kpt.keep_statuses.keys , class: "keep_status-select"%>
   </div>
 
   <div class="field">
     <%= form.label :"problem(最大130字)" %>
-    <%= form.text_area :problem_content , size: "40x8",class: 'form-control  js-text2', rows: 6, placeholder: '改行は文字数(2文字)'%>
+    <%= form.text_area :problem_content , size: "40x8",class: 'form-control  js-text2', rows: 6, placeholder: '改行の文字数(2文字)'%>
 
     <P class="js-text-count2 pull-right"></P>
   </div>
 
   <div class="field">
-    <%= form.label :達成度 %>
+    <%= form.label :Problemの達成度 %>
     <%= form.select :problem_status, Kpt.problem_statuses.keys,class: "problem_status-select"%>
   </div>
   
   <div class="field">
     <%= form.label :"try(最大130字)" %>
-    <%= form.text_area :try_content , size: "40x8",class: 'form-control  js-text3', rows: 6, placeholder: '改行は文字数(2文字)'%>
+    <%= form.text_area :try_content , size: "40x8",class: 'form-control  js-text3', rows: 6, placeholder: '改行の文字数(2文字)'%>
 
     <P class="js-text-count3 pull-right"></P>
   </div>
 
   <div class="field">
-    <%= form.label :達成度 %>
+    <%= form.label :Tryの達成度 %>
     <%= form.select :try_status, Kpt.try_statuses.keys,  class: "try_status-select"%>
   </div>
 
