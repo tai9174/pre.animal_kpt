@@ -18,9 +18,15 @@
     <%@today_kpts.each do |kpt| %>
       <tr>
         <td><%=kpt.user.name %></td>
-        <td style="height: 150px; width: 250px; padding: 10px; margin-bottom: 10px; border: 1px solid #333333;"><%= kpt.keep_content %></td> 
-        <td style="height: 150px; width: 250px; padding: 10px; margin-bottom: 10px; border: 1px solid #333333;"><%= kpt.problem_content %></td>
-        <td style="height: 150px; width: 250px; padding: 10px; margin-bottom: 10px; border: 1px solid #333333;"><%= kpt.try_content %></td>
+        <td style="height: 150px; width: 350px; padding: 10px; margin-bottom: 10px; border: 1px solid #333333;">
+          <%=safe_join(kpt.keep_content.split("\n"),tag(:br))%>
+        </td> 
+        <td style="height: 150px; width: 350px; padding: 10px; margin-bottom: 10px; border: 1px solid #333333;">
+          <%=safe_join(kpt.problem_content.split("\n"),tag(:br))%>
+        </td>
+        <td style="height: 150px; width: 350px; padding: 10px; margin-bottom: 10px; border: 1px solid #333333;">
+          <%=safe_join(kpt.try_content.split("\n"),tag(:br))%>
+        </td>
       </tr>
     <% end %>
   </tbody> 

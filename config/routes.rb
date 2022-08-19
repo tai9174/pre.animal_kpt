@@ -7,7 +7,10 @@ Rails.application.routes.draw do
   get "tops/help" => "tops#help"
   get "tops/index" => "tops#index"
   get "users/show" => "users#show"
-  resources :kpts
+  resources :kpts do
+    get :favorits
+  end
+  get "favorits/index" => "favorits#index"
   root "kpts#index"  
   devise_for :users
   resources :blogs

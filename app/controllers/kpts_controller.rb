@@ -59,14 +59,25 @@ class KptsController < ApplicationController
     end
   end
 
+  
+  def favorits
+    @kpts = current_user.kpts 
+    @favorite_kpts=[]
+    @kpts.each do |kpt|
+      if kpt.favorite == true
+        @favorite_kpts<< kpt
+      end
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_kpt
-      @kpt = Kpt.find(params[:id])
-    end
+  def set_kpt
+    @kpt = Kpt.find(params[:id])
+  end
 
-    # Only allow a list of trusted parameters through.
-    def kpt_params
-      params.require(:kpt).permit(:keep_content, :keep_status, :problem_content, :problem_status, :try_content, :try_status, :favorite)
-    end
+  # Only allow a list of trusted parameters through.
+  def kpt_params
+    params.require(:kpt).permit(:keep_content, :keep_status, :problem_content, :problem_status, :try_content, :try_status, :favorite)
+  end
 end

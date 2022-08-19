@@ -35,3 +35,5 @@ gem 'devise'
 gem 'rexml'
 gem "jquery-rails"
 gem 'clipboard-rails'
+gem 'zeroclipboard-rails'
+gem 'jquery-turbolinks'
